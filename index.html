@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Don’t be Last standings</title>
+<style>
+:root {
+  --bg: #fafaf8; --fg: #1d1d1b; --muted: #6b6b66; --line: #e3e2dc; --head: #f0efe9;
+  --pos: #1e7a3c; --neg: #b3261e; --accent: #3b5bdb;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161615; --fg: #ecebe6; --muted: #9b9a93; --line: #2e2d2a; --head: #201f1d;
+    --pos: #6fd08c; --neg: #ff8a80; --accent: #8ea2ff;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1240px; margin: 0 auto; padding: 32px 20px 48px; }
+h1 { font-size: 1.5rem; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 20px; }
+.wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+tbody tr:last-child td { border-bottom: 0; }
+th { background: var(--head); font-weight: 600; text-align: left; white-space: normal;
+  vertical-align: bottom; line-height: 1.25; }
+th.num, td.num { text-align: right; }
+th button { all: unset; cursor: pointer; display: inline-flex; gap: 4px; align-items: flex-end; }
+th.num button { justify-content: flex-end; text-align: right; }
+th button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.arrow { width: 0.8em; color: var(--accent); }
+th[aria-sort="ascending"] .arrow::after { content: "▲"; font-size: 0.7em; }
+th[aria-sort="descending"] .arrow::after { content: "▼"; font-size: 0.7em; }
+td.team { font-weight: 500; }
+th:first-child, td.team { position: sticky; left: 0; z-index: 1; background: var(--bg);
+  box-shadow: inset -1px 0 0 var(--line); }
+th:first-child { background: var(--head); }
+td.pos { color: var(--pos); }
+td.neg { color: var(--neg); }
+tbody tr:hover td { background: color-mix(in srgb, var(--head) 70%, var(--accent) 6%); }
+footer { color: var(--muted); font-size: 13px; margin-top: 18px; }
+footer dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 0; }
+footer dt { font-weight: 600; color: var(--fg); }
+footer dd { margin: 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Don’t be Last · 2026</h1>
+<p class="sub">Expanded standings through weeks 1–8 (completed weeks only). Generated 2026-11-03 13:54.
+Click a column to sort.</p>
+<div class="wrap">
+<table id="standings">
+<thead><tr><th scope="col" data-desc="0" title="Current team name"><button type="button">Team<span class="arrow"></span></button></th><th scope="col" data-desc="1" title="Wins with a random schedule: each week, share of the other teams you outscored" class=num><button type="button">Expected wins<span class="arrow"></span></button></th><th scope="col" data-desc="1" title="Head-to-head wins (ties count 0.5)" class=num><button type="button">Actual wins<span class="arrow"></span></button></th><th scope="col" data-desc="1" title="Actual wins minus expected wins" class=num><button type="button">Schedule luck<span class="arrow"></span></button></th><th scope="col" data-desc="1" title="Points from the best possible lineup from the team&#x27;s own roster each week, in hindsight" class=num><button type="button">Best case points<span class="arrow"></span></button></th><th scope="col" data-desc="1" title="Points scored by the starters" class=num><button type="button">Actual points<span class="arrow"></span></button></th><th scope="col" data-desc="1" title="Actual points / best case points" class=num><button type="button">Lineup efficiency<span class="arrow"></span></button></th><th scope="col" data-desc="0" title="Losses or ties the best case lineup would have won, opponent score held fixed" class=num><button type="button">Lineup losses<span class="arrow"></span></button></th></tr></thead>
+<tbody>
+<tr><td class="team" data-sort="Purdy Porta Browns">Purdy Porta Browns</td><td class="num" data-sort="4.7272727272727275">4.73</td><td class="num" data-sort="7.0">7</td><td class="num pos" data-sort="2.2727272727272725">+2.27</td><td class="num" data-sort="953.9">953.9</td><td class="num" data-sort="860.2">860.2</td><td class="num" data-sort="0.9017716741796835">90.2%</td><td class="num" data-sort="0">0</td></tr>
+<tr><td class="team" data-sort="Roger broke">Roger broke</td><td class="num" data-sort="5.090909090909091">5.09</td><td class="num" data-sort="5.0">5</td><td class="num neg" data-sort="-0.09090909090909083">-0.09</td><td class="num" data-sort="1066.54">1066.5</td><td class="num" data-sort="899.22">899.2</td><td class="num" data-sort="0.843118870365856">84.3%</td><td class="num" data-sort="2">2</td></tr>
+<tr><td class="team" data-sort="Team Allen">Team Allen</td><td class="num" data-sort="4.636363636363637">4.64</td><td class="num" data-sort="5.0">5</td><td class="num pos" data-sort="0.3636363636363633">+0.36</td><td class="num" data-sort="994.9399999999999">994.9</td><td class="num" data-sort="855.3">855.3</td><td class="num" data-sort="0.8596498281303395">86.0%</td><td class="num" data-sort="3">3</td></tr>
+<tr><td class="team" data-sort="Mahomes&#x27; Rainbow Connection">Mahomes&#x27; Rainbow Connection</td><td class="num" data-sort="4.181818181818182">4.18</td><td class="num" data-sort="5.0">5</td><td class="num pos" data-sort="0.8181818181818183">+0.82</td><td class="num" data-sort="923.76">923.8</td><td class="num" data-sort="839.46">839.5</td><td class="num" data-sort="0.9087425305274097">90.9%</td><td class="num" data-sort="1">1</td></tr>
+<tr><td class="team" data-sort="Biiiiig bye week">Biiiiig bye week</td><td class="num" data-sort="4.181818181818182">4.18</td><td class="num" data-sort="5.0">5</td><td class="num pos" data-sort="0.8181818181818183">+0.82</td><td class="num" data-sort="1011.6999999999999">1011.7</td><td class="num" data-sort="832.06">832.1</td><td class="num" data-sort="0.822437481466838">82.2%</td><td class="num" data-sort="1">1</td></tr>
+<tr><td class="team" data-sort="Jah Myracle Worker">Jah Myracle Worker</td><td class="num" data-sort="5.545454545454546">5.55</td><td class="num" data-sort="4.0">4</td><td class="num neg" data-sort="-1.5454545454545459">-1.55</td><td class="num" data-sort="994.98">995.0</td><td class="num" data-sort="895.3399999999999">895.3</td><td class="num" data-sort="0.8998572835634886">90.0%</td><td class="num" data-sort="2">2</td></tr>
+<tr><td class="team" data-sort="Montgomery Bears">Montgomery Bears</td><td class="num" data-sort="3.8181818181818183">3.82</td><td class="num" data-sort="4.0">4</td><td class="num pos" data-sort="0.18181818181818166">+0.18</td><td class="num" data-sort="913.3399999999999">913.3</td><td class="num" data-sort="813.44">813.4</td><td class="num" data-sort="0.8906212363413407">89.1%</td><td class="num" data-sort="2">2</td></tr>
+<tr><td class="team" data-sort="Swift Happens">Swift Happens</td><td class="num" data-sort="3.0">3.00</td><td class="num" data-sort="4.0">4</td><td class="num pos" data-sort="1.0">+1.00</td><td class="num" data-sort="980.34">980.3</td><td class="num" data-sort="775.96">776.0</td><td class="num" data-sort="0.7915213089336353">79.2%</td><td class="num" data-sort="4">4</td></tr>
+<tr><td class="team" data-sort="Love Hurts">Love Hurts</td><td class="num" data-sort="3.3636363636363638">3.36</td><td class="num" data-sort="3.0">3</td><td class="num neg" data-sort="-0.36363636363636376">-0.36</td><td class="num" data-sort="953.68">953.7</td><td class="num" data-sort="806.5799999999999">806.6</td><td class="num" data-sort="0.8457553896485194">84.6%</td><td class="num" data-sort="2">2</td></tr>
+<tr><td class="team" data-sort="Batman and Robinson">Batman and Robinson</td><td class="num" data-sort="3.818181818181818">3.82</td><td class="num" data-sort="2.0">2</td><td class="num neg" data-sort="-1.818181818181818">-1.82</td><td class="num" data-sort="948.6">948.6</td><td class="num" data-sort="821.72">821.7</td><td class="num" data-sort="0.8662449926207042">86.6%</td><td class="num" data-sort="3">3</td></tr>
+<tr><td class="team" data-sort="The Commissioner">The Commissioner</td><td class="num" data-sort="3.0">3.00</td><td class="num" data-sort="2.0">2</td><td class="num neg" data-sort="-1.0">-1.00</td><td class="num" data-sort="848.0">848.0</td><td class="num" data-sort="795.12">795.1</td><td class="num" data-sort="0.9376415094339623">93.8%</td><td class="num" data-sort="0">0</td></tr>
+<tr><td class="team" data-sort="4th and Simmons">4th and Simmons</td><td class="num" data-sort="2.6363636363636362">2.64</td><td class="num" data-sort="2.0">2</td><td class="num neg" data-sort="-0.6363636363636362">-0.64</td><td class="num" data-sort="856.04">856.0</td><td class="num" data-sort="777.12">777.1</td><td class="num" data-sort="0.9078080463529742">90.8%</td><td class="num" data-sort="2">2</td></tr>
+</tbody>
+</table>
+</div>
+<footer>
+<dl>
+<dt>Expected wins</dt><dd>Sum over weeks of the share of the other teams you outscored that week.
+Equivalent to your record if you played everyone every week, scaled to one game a week.</dd>
+<dt>Schedule luck</dt><dd>Actual wins minus expected wins.
+Sums to about zero across the league.</dd>
+<dt>Best case points</dt><dd>Highest possible score from each week's roster (IR excluded),
+chosen with hindsight.</dd>
+<dt>Lineup losses</dt><dd>Games not won that the best case lineup would have won,
+with the opponent's actual score held fixed.</dd>
+</dl>
+</footer>
+</main>
+<script>
+(() => {
+  const table = document.getElementById("standings");
+  const ths = [...table.tHead.rows[0].cells];
+  const body = table.tBodies[0];
+  const key = (row, i) => row.cells[i].dataset.sort;
+  ths.forEach((th, i) => th.querySelector("button").addEventListener("click", () => {
+    const current = th.getAttribute("aria-sort");
+    const desc = current ? current === "ascending" : th.dataset.desc === "1";
+    ths.forEach(h => h.removeAttribute("aria-sort"));
+    th.setAttribute("aria-sort", desc ? "descending" : "ascending");
+    const numeric = i > 0;
+    const rows = [...body.rows].sort((a, b) => {
+      const x = key(a, i), y = key(b, i);
+      if (x === "" || y === "") return (x === "") - (y === "");
+      const c = numeric ? Number(x) - Number(y) : x.localeCompare(y);
+      return desc ? -c : c;
+    });
+    body.append(...rows);
+  }));
+})();
+</script>
+</body>
+</html>
